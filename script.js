@@ -1,62 +1,110 @@
-//Query Selectors//
-var buttonA = document.getElementById("A");
-var buttonB = document.getElementById("B");
-var buttonC = document.getElementById("C");
-var buttonD = document.getElementById("D");
-var startbtn = document.getElementById("startbtn");
-var questions = document.getElementById("questions");
-var answers = document.getElementById("answers");
-var finalScore= document.getElementById("Final-Score");
-var submitbtn = document.getElementById("submit-btn");
-var initials = document.getElementById("initials");
-var scorePG = document.getElementById("score-pg");
-var playAgainbtn = document.getElementById("play-again");
-var endGame = document.getElementById("end-game");
-var feedback = document.getElementById("wonrg/right");
-var questionContainer = document.getElementById("question-container");
-var highscoreLink = document.getElementById("highscore")
+//VARIBALES//
+var buttonA = $("#A");
+var buttonB = $("#B");
+var buttonC = $("#C");
+var buttonD = $("#D");
+var startButton = $("#startbtn");
+var quizQuestions = $("#questions");
+var possAnswers = $("#answers");
+var finalScore = $("#Final-Score");
+var submitbtn = $("#submit-btn");
+var UserInitials = $("#initials");
+var scorePG = $("#score-pg");
+var playAgainbtn = $("#play-again");
+var endGame = $("#end-game");
+var feedback = $("#wrong/right");
+var questionContainer = $("#containerQ");
+var highscoreLink = $("#highscore");
+var countdown = $("#timer");
 
-// Global Variables// 
+// Global Variables// -- what data do we care about?
+var score = 60; // time left
+var correctAnswers;
+var storedScore;
+var CurrentQuestion = 0;
 
 //Quiz Questions - 5 total and they need to be in an array//
-var quizQuestions = [{
+var quizQuestions = [
+  {
+    //question [0]
     question: "What is === operator?",
     answerA: "Checks the equity of two strings",
     answerB: "A strict operator, it checks both type and value",
     answerC: "It is an athrimetic operator and is used to evaluate equations",
     answerD: "Sets to variables equal to each other",
-    correctAnswer: "B" },
-    {question: "Which of the following combines the text of two strings and returns a new string?",
+    correctAnswer: "B",
+  },
+  {
+    //question [1]
+    question:
+      "Which of the following combines the text of two strings and returns a new string?",
     answerA: "append()",
     answerB: "attach()",
     answerC: "concat()",
     answerD: "none of the above",
-    correctAnswer: "C"},
-    {question: "Which of the following is not a way to declare a variable?",
+    correctAnswer: "C",
+  },
+  {
+    //question [2]
+    question: "Which of the following is not a way to declare a variable?",
     answerA: "var",
     answerB: "let",
     answerC: "const",
     answerD: "decl",
-    correctAnswer: "D"},
-    {question: "Which of the following is not a primative data type?",
+    correctAnswer: "D",
+  },
+  {
+    //question [3]
+    question: "Which of the following is not a primative data type?",
     answerA: "Boolean",
     answerB: "String",
     answerC: "Object",
     answerD: "Underfined",
-    correctAnswer: "C"},
-    {question: "Where do you place the script tag in teh HTML?",
+    correctAnswer: "C",
+  },
+  {
+    //question [4]
+    question: "Where do you place the script tag in the HTML?",
     answerA: "Between the closing body tag and the closing HTML tag",
     answerB: "Above the closing body tag",
     answerC: "Before the closing head tag",
     answerD: "After the closing head tag and before the opening body tag",
-    correctAnswer: "B"},];
+    correctAnswer: "B",
+  },
+];
 
+//FUNCTIONS//
+//1. function - start game
+function startGame() {
+  //what I need in this function-
+  //for the timer to start
+  //first question to appear
+}
 
-//function declarations 
+//timer- function that have the interval that takes off the clock
+//another function that loads the data for the next question
+//Event listener for all the answer buttons -
+//check to see if they are on the last question- if not load the next question
 
-//timer? 
+//function next question- load questions
+function loadQuestions() {
+  var presentedQuestion = quizQuestions[CurrentQuestion];
+  //some logic to put 'presentedQuestion' on the screen
+}
 
-//Working quiz with calls to my function declaration - if else 
+//function that handles the user clicking an answer
+//removes time if question is answered in correctly
+//if statement comparing event.target.value with quizQuestions[currentQuestion].correctAnswer
+//check currentQuestion to see if the quiz is over
+//either show score or run loadQuestions()
+$("#buttons").on("click", function (event) {
+  var selection = event.target.value;
+  //some logic to put 'selection'
+});
 
+// score with storage.
 
-// score with storage. 
+//Event Listeners!
+//start button
+startButton.on("click", startGame);
+//click for multiple choice answers. Event objest, target.

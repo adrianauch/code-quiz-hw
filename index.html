@@ -4,44 +4,51 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./index.html" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
     <title>JavaScript Quiz!</title>
   </head>
   <body>
-    <!-- Have a header that has a link to high scores -->
+    <!-- Have a header that has a link to high scores  and timer button-->
     <header>
-      <div class="highscore"></div>
-    </header>
-    <!-- Landing page- this need a title (header) directions and a start btn -->
-    <section class="landing-page">
+      <div id="highscore">HighScore</div>
+      <div id="timer">Clock</div>
+    </header> 
+    <!-- !Landing page- this need a title (header) directions and a start btn --> 
+    <section id="landing-page">
       <h1>Test Your JavaScript Knowledge!</h1>
       <p>
         Try and correctly answer all of the JavaScript questions, within the
         allotted time. Keep in mind that wrong answers will take 15 seconds off
         the clock.
       </p>
-      <button class="startbtn">Start Quiz</button>
-    </section>
+    <button class="startbtn">Start Quiz</button>
+    <!-- </section>  -->
     <!-- Questions - this page will have a question, timer upper right and display if answer is right or wong -->
     <!-- big conatiner -->
-    <section class="question-container">
+    <section class="containerQ">
       <!-- Need a timer somewhere in here -->
       <!-- h3 has the question -->
-      <h3 class="questions"></h3>
-      <ul class="answers">
+      <h3 class="questions">Question:</h3>
+      <ul class="answers" id="buttons">
         <!-- These are the options to the question -->
-        <li><button class="A">A</button></li>
-        <li><button class="B">B</button></li>
-        <li><button class="C">C</button></li>
-        <li><button class="D">D</button></li>
+        <li><button value="A" id="A">A</button></li>
+        <li><button id="B">B</button></li>
+        <li><button id="C">C</button></li>
+        <li><button id="D">D</button></li>
       </ul>
-      <p class="worng/right"></p>
+      <p id="worng/right"></p>
     </section>
     <!-- GAME OVER section- user can enter in intials and see other high scores -->
     <!-- in example it shows view high score in upper left? anotehr event button and display scores w/ initials?  -->
-    <section class="end-game">
-      <h2 class="game-over">GAME OVER</h2>
-      <div class="Final-Score"></div>
+    <section id="end-game">
+      <h2 id="game-over">GAME OVER</h2>
+      <div id="Final-Score"></div>
       <input
         type="text"
         placeholder="Please Enter Your Intials Here"
@@ -51,19 +58,17 @@
       <button class="submit-btn">Submit Score</button>
     </section>
     <!-- High Score Section-->
-    <section class="score-pg">
+   <section class="score-pg">
       <h2>Leader Board</h2>
       <ul>
-        <li class="highest"></li>
-        <li class="high"></li>
-        <li class="mid-score"></li>
-        <li class="lowest"></li>
       </ul>
       <div>
-        <button class="play-again"></button>
+        <button id="play-again"></button>
       </div>
     </section>
 
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="./script.js"></script>
   </body>
 </html>

@@ -1,0 +1,21 @@
+:root {
+  --white: #f9f9f9;
+  --deepGreen: #314637;
+  --lightGreen: #62805e;
+  --Red: #ac3304;
+  --backgroundgreen: #9eb5a5;
+  --lightread: #dcc5bd;
+  --font: font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.containerQ{
+    flex: box;
+    justify-content: center;
+    align-items: center;
+}
+
+    
+ul {
+    list-style: none;
+}
+/* I need to hide the landing page and have questions appear display none */
