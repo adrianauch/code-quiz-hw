@@ -9,17 +9,21 @@
   </head>
   <body>
     <!-- Landing page- this need a title (header) directions and a start btn -->
-    <section>
-      <h1></h1>
-      <p></p>
-      <button></button>
+    <section class="landing-page">
+      <h1>Test Your JavaScript Knowledge!</h1>
+      <p>
+        Try and corr4ectly answer all of the JavaScript questions, within the
+        allotted time. Keep in mind that wrong answers will take 15 seconds off
+        the clock.
+      </p>
+      <button class="start-btn">Start Quiz</button>
     </section>
     <!-- Questions - this page will have a question, timer upper right and display if answer is right or wong -->
     <!-- big conatiner -->
-    <section>
+    <section class="question-container">
       <!-- Need a timer somewhere in here -->
       <!-- h3 has the question -->
-      <h3></h3>
+      <h3 class="questions"></h3>
       <ul class="answers">
         <!-- These are the options to the question -->
         <li class="A"></li>
@@ -31,8 +35,29 @@
     </section>
     <!-- GAME OVER section- user can enter in intials and see other high scores -->
     <!-- in example it shows view high score in upper left? anotehr event button and display scores w/ initials?  -->
-    <section>
-      <h2></h2>
+    <section class="end-game">
+      <h2 class="game-over">GAME OVER</h2>
+      <div class="Final Score"></div>
+      <input
+        type="text"
+        placeholder="Please Enter Your Intials Here"
+        name="initails"
+        id="initials"
+      />
+      <button class="submit-btn">Submit Score</button>
+    </section>
+    <!-- High Score Section-->
+    <section class="score-pg">
+      <h2>Leader Board</h2>
+      <ul>
+        <li class="highest"></li>
+        <li class="high"></li>
+        <li class="mid-score"></li>
+        <li class="lowest"></li>
+      </ul>
+      <div>
+        <button class="play-again"></button>
+      </div>
     </section>
 
     <script src="./script.js"></script>
