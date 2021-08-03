@@ -5,18 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./index.html" />
-    <title>Code Quiz!</title>
+    <title>JavaScript Quiz!</title>
   </head>
   <body>
+    <!-- Have a header that has a link to high scores -->
+    <header>
+      <div class="highscore"></div>
+    </header>
     <!-- Landing page- this need a title (header) directions and a start btn -->
     <section class="landing-page">
       <h1>Test Your JavaScript Knowledge!</h1>
       <p>
-        Try and corr4ectly answer all of the JavaScript questions, within the
+        Try and correctly answer all of the JavaScript questions, within the
         allotted time. Keep in mind that wrong answers will take 15 seconds off
         the clock.
       </p>
-      <button class="start-btn">Start Quiz</button>
+      <button class="startbtn">Start Quiz</button>
     </section>
     <!-- Questions - this page will have a question, timer upper right and display if answer is right or wong -->
     <!-- big conatiner -->
@@ -26,10 +30,10 @@
       <h3 class="questions"></h3>
       <ul class="answers">
         <!-- These are the options to the question -->
-        <li class="A"></li>
-        <li class="B"></li>
-        <li class="C"></li>
-        <li class="D"></li>
+        <li><button class="A">A</button></li>
+        <li><button class="B">B</button></li>
+        <li><button class="C">C</button></li>
+        <li><button class="D">D</button></li>
       </ul>
       <p class="worng/right"></p>
     </section>
@@ -37,7 +41,7 @@
     <!-- in example it shows view high score in upper left? anotehr event button and display scores w/ initials?  -->
     <section class="end-game">
       <h2 class="game-over">GAME OVER</h2>
-      <div class="Final Score"></div>
+      <div class="Final-Score"></div>
       <input
         type="text"
         placeholder="Please Enter Your Intials Here"

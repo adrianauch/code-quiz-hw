@@ -35,9 +35,11 @@ c
 d
 What questions:
 
-1. Which of the following is an increment?
-   a.+ b.++ c.\* d.--
-   answer: b
+1. "What is === operator?",
+   answerA: "Checks the equity of two strings",
+   answerB: "A strict operator, it checks both type and value",
+   answerC: "It is an athrimetic operator and is used to evaluate equations",
+   answerD: "Sets to variables equal to each other",
 2. Which of the following combines the text of two strings and returns a new string?
    a. append() b. concat() c. attach() d. none of the above
    answer: b
@@ -45,7 +47,7 @@ What questions:
    a. var b.let c.ident d.const
    answer:c
 4. Which of the following is not a data type?
-   a. array b. string c.object d. number
+   a. Boolean b. string c.object d. underfined
    answer: a
 5. Where do would you add the script tag?
    a. between the last body tag and the HTML tag b. above the last body tag c. in the head element d. after the </head> but before the <body> tag.
