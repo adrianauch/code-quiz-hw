@@ -34,20 +34,26 @@ b
 c
 d
 What questions:
+What is the rarest m&m color?
+answer: brown
+choices : red, blue, yellow
 
-1. "What is === operator?",
-   answerA: "Checks the equity of two strings",
-   answerB: "A strict operator, it checks both type and value",
-   answerC: "It is an athrimetic operator and is used to evaluate equations",
-   answerD: "Sets to variables equal to each other",
-2. Which of the following combines the text of two strings and returns a new string?
-   a. append() b. concat() c. attach() d. none of the above
-   answer: b
-3. Which of the following is not a way to declare a variable?
-   a. var b.let c.ident d.const
-   answer:c
-4. Which of the following is not a data type?
-   a. Boolean b. string c.object d. underfined
-   answer: a
-5. Where do would you add the script tag?
-   a. between the last body tag and the HTML tag b. above the last body tag c. in the head element d. after the </head> but before the <body> tag.
+what was the first soft drink in space?
+answer: coca cola
+choices: Pepsi, Dr. Pepper, Gatorade
+
+what is the most consumer manufactured drink in the world?
+answer: tea
+choices: soft drinks, coffee, alcohol
+
+Where was Hawaiian pizza invented?
+answer: Canada
+choices: italty, united states, United Kingdom
+
+How long does it take to grow a pineapple?
+answer: 3 years
+choices: 3 months, 6 months, 1 year
+
+Which of the following has the most vitamin c?
+answer: Peppers
+choices: oranages, strawberries, Kale

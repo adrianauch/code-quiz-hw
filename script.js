@@ -4,7 +4,7 @@ var buttonB = $("#B");
 var buttonC = $("#C");
 var buttonD = $("#D");
 var startButton = $("#startbtn");
-var quizQuestions = $("#questions");
+var questionPrompt = $("#viewQuestion");
 var possAnswers = $("#answers");
 var finalScore = $("#Final-Score");
 var submitbtn = $("#submit-btn");
@@ -12,99 +12,113 @@ var UserInitials = $("#initials");
 var scorePG = $("#score-pg");
 var playAgainbtn = $("#play-again");
 var endGame = $("#end-game");
-var feedback = $("#wrong/right");
+var feedback = $("#wrong-right");
 var questionContainer = $("#containerQ");
 var highscoreLink = $("#highscore");
 var countdown = $("#timer");
+var landingPage = $("#landing-page");
 
 // Global Variables// -- what data do we care about?
-var score = 60; // time left
-var correctAnswers;
+var timeLeft = 60; // time left
+var correctAnswer = 0;
 var storedScore;
 var CurrentQuestion = 0;
 
 //Quiz Questions - 5 total and they need to be in an array//
 var quizQuestions = [
   {
-    //question [0]
-    question: "What is === operator?",
-    answerA: "Checks the equity of two strings",
-    answerB: "A strict operator, it checks both type and value",
-    answerC: "It is an athrimetic operator and is used to evaluate equations",
-    answerD: "Sets to variables equal to each other",
-    correctAnswer: "B",
+    title: "What is the rarest m&m color?",
+    options: ["Red", "Blue", "Brown", "Yellow"],
+    answer: "Brown",
   },
   {
-    //question [1]
-    question:
-      "Which of the following combines the text of two strings and returns a new string?",
-    answerA: "append()",
-    answerB: "attach()",
-    answerC: "concat()",
-    answerD: "none of the above",
-    correctAnswer: "C",
+    title: "What was the first soft drink in space?",
+    options: ["Coca-Cola", "Pepsi", "Dr.Pepper", "Gatorade"],
+    answer: "Coca-cola",
   },
   {
-    //question [2]
-    question: "Which of the following is not a way to declare a variable?",
-    answerA: "var",
-    answerB: "let",
-    answerC: "const",
-    answerD: "decl",
-    correctAnswer: "D",
+    title: "What is the most consumer manufactured drink in the world?",
+    options: ["Soft Drinks", "Coffee", "Alcohol", "Tea"],
+    answer: "Tea",
   },
   {
-    //question [3]
-    question: "Which of the following is not a primative data type?",
-    answerA: "Boolean",
-    answerB: "String",
-    answerC: "Object",
-    answerD: "Underfined",
-    correctAnswer: "C",
+    title: "Where was Hawaiian pizza invented?",
+    options: ["Italy", "Canada", "United States", "United Kingdom"],
+    answer: "Canada",
   },
   {
-    //question [4]
-    question: "Where do you place the script tag in the HTML?",
-    answerA: "Between the closing body tag and the closing HTML tag",
-    answerB: "Above the closing body tag",
-    answerC: "Before the closing head tag",
-    answerD: "After the closing head tag and before the opening body tag",
-    correctAnswer: "B",
+    title: "How long does it take to grow a pineapple?",
+    options: ["3 months", "6 months", "1 year", "3 years"],
+    answer: "3 Years",
   },
 ];
 
 //FUNCTIONS//
 //1. function - start game
 function startGame() {
-  //what I need in this function-
-  //for the timer to start
-  //first question to appear
+  landingPage.hide();
+  endGame.hide();
+  questionContainer.show();
+  loadQuestions();
 }
 
-//timer- function that have the interval that takes off the clock
 //another function that loads the data for the next question
 //Event listener for all the answer buttons -
 //check to see if they are on the last question- if not load the next question
 
 //function next question- load questions
 function loadQuestions() {
-  var presentedQuestion = quizQuestions[CurrentQuestion];
-  //some logic to put 'presentedQuestion' on the screen
+  questionPrompt.text(quizQuestions[CurrentQuestion].title);
+  var choiceA = quizQuestions[CurrentQuestion].options[0];
+  var choiceB = quizQuestions[CurrentQuestion].options[1];
+  var choiceC = quizQuestions[CurrentQuestion].options[2];
+  var choiceD = quizQuestions[CurrentQuestion].options[3];
+  buttonA.text(choiceA);
+  buttonB.text(choiceB);
+  buttonC.text(choiceC);
+  buttonD.text(choiceD);
+}
+//Timer Function
+function coutdown() {
+  interval = setInterval(function () {
+    timeLeft--;
+    countdown.textContent = "Time:" + timeLeft;
+
+    if (timeLeft <= 0) {
+      clearInterval(interval);
+      gameOver();
+      CurrentTime.text("Time's Up!");
+    }
+  }, 1000);
 }
 
-//function that handles the user clicking an answer
-//removes time if question is answered in correctly
 //if statement comparing event.target.value with quizQuestions[currentQuestion].correctAnswer
 //check currentQuestion to see if the quiz is over
 //either show score or run loadQuestions()
 $("#buttons").on("click", function (event) {
   var selection = event.target.value;
-  //some logic to put 'selection'
+  if (selection === quizQuestions[CurrentQuestion].answer) {
+    correctAnswer++;
+    feedback.text("Correct");
+  } else {
+    timeLeft = -10;
+  }
+  CurrentQuestion++;
+  if (CurrentQuestion < quizQuestions.length) {
+    loadQuestions();
+  } else {
+    gameOver();
+  }
 });
 
+function gameOver() {
+  questionContainer.hide();
+  endGame.show();
+}
 // score with storage.
 
 //Event Listeners!
 //start button
 startButton.on("click", startGame);
-//click for multiple choice answers. Event objest, target.
+
+//click for multiple choice answers. Event objest, target

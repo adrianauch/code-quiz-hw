@@ -7,15 +7,117 @@
   --lightread: #dcc5bd;
   --font: font-family: 'Open Sans Condensed', sans-serif;
 }
-
-.containerQ{
-    flex: box;
+*{
+    box-sizing: border-box;
+    font-family: var(--font);
+    margin: 0;
+    padding: 0;
+    color: #314637;
+    background-color: var(--backgroundgreen);
+}
+.landing-page {
+    width: 80vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 80rem;
+    background-color: #f9f9f9;
+    border: 5px solid #314637;
+    border-radius: 8px;
+    box-shadow:  10px 5px 20px 10px var(--lightGreen);
+}
+.header{
+    display: flex;
+}
+#directions{
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: #f9f9f9;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 5%;
+    padding-bottom: 10%;
+}
+#highscore {
+   justify-content: left;
+   padding-left: 20px;
+}
+
+h1{
+    font-size: 2.5rem;
+    background-color: #f9f9f9;
+    justify-content: center;
+}
+.startbtn {
+    font-size: 2rem;
+    border-radius: 5px;
+    background-color: var(--lightGreen);
+    color: var(--white);
+    cursor: pointer;
     align-items: center;
 }
 
+.startbtn:hover {
+    background-color: var(--deepGreen);
+    color: (var(--white));
+    cursor: pointer;
+}
+.game-over-screen, .score-pg {
+    display: none;
+}
+.containerQ {
+    width: 80vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 80rem;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 80rem;
+    background-color: #f9f9f9;
+    border: 5px solid #314637;
+    border-radius: 8px;
+    box-shadow:  10px 5px 20px 10px var(--lightGreen);
+}
+#timer{ 
+    justify-content: right;
+}
+.questions{
+    background-color: var(--white);
+    font-size: 2rem;
+    padding-bottom: 2%;
+    padding-top: 5%;
+}
+#A, #B, #C, #D {
+    display: block;
+    font-size: 1.7rem;
+    width: 100%;
+    background-color: var(--backgroundgreen);
+    color: var(--deepGreen);
+    cursor: pointer;
+    text-align: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin: 15px 15px;
+    
+    
+    
+}
+#viewQuestion {
+    font-size: 2rem;
+    font-family: var(--font);
+    background-color: var(--white);
+}
+li{
+    background-color: var(--white);
+}
     
 ul {
     list-style: none;
+    background-color: var(--white);
 }
 /* I need to hide the landing page and have questions appear display none */
