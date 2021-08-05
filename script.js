@@ -115,8 +115,35 @@ function gameOver() {
   questionContainer.hide();
   endGame.show();
 }
-// score with storage.
 
+function highscores(event) {
+  event.preventDefaul();
+  if (UserInitials.value === "") {
+    alert("Please enter your initails!");
+  } else {
+    endGame.hide();
+    scorePG.show();
+  }
+  return;
+}
+// score with storage.
+var savedHighScores = localStorage.getItem("High Scores");
+var ScoresArray;
+
+if (savedHighScores === null) {
+  ScoresArray = [];
+} else {
+  ScoresArray = JSON.parse(savedHighScores);
+}
+var userScore = {
+  initials: UserInitials.value,
+  score: finalScore.textContent,
+};
+
+console.log(userScore);
+ScoresArray.push(userScore);
+
+var scoresstring;
 //Event Listeners!
 //start button
 startButton.on("click", startGame);
