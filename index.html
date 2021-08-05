@@ -7,6 +7,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+    <link
       href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap"
       rel="stylesheet"
     />
@@ -17,7 +22,6 @@
     <!-- Have a header that has a link to high scores  and timer button-->
     <header class="header">
       <div id="highscore"><a href="#"></a> High Scores</div>
-      <div id="timer"></div>
     </header>
     <!-- !Landing page- this need a title (header) directions and a start btn -->
     <section id="landing-page" class="landing-page">
@@ -32,6 +36,7 @@
     <!-- Questions - this page will have a question, timer upper right and display if answer is right or wong -->
     <!-- big conatiner -->
     <section class="containerQ hide">
+      <div id="timer"></div>
       <!-- Need a timer somewhere in here -->
       <!-- h3 has the question -->
       <h3 id="questions" class="questions">
@@ -63,7 +68,7 @@
     <!-- High Score Section-->
     <section id="score-pg" class="score-pg">
       <h2>Leader Board</h2>
-      <ul></ul>
+      <ul id="leaderboard"></ul>
       <div>
         <button id="play-again"></button>
       </div>

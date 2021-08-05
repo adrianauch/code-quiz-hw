@@ -17,14 +17,14 @@ var questionContainer = $("#containerQ");
 var highscoreLink = $("#highscore");
 var countdown = $("#timer");
 var landingPage = $("#landing-page");
-
+var leadrboard = $("#leaderboard");
 // Global Variables// -- what data do we care about?
 var timeLeft = 60; // time left
 var correctAnswer = 0;
 var storedScore;
 var CurrentQuestion = 0;
 
-//Quiz Questions - 5 total and they need to be in an array//
+//Quiz Questions - Objects within an array
 var quizQuestions = [
   {
     title: "What is the rarest m&m color?",
@@ -58,15 +58,12 @@ var quizQuestions = [
 function startGame() {
   landingPage.hide();
   endGame.hide();
+  leadrboard.hide();
   questionContainer.show();
   loadQuestions();
 }
 
-//another function that loads the data for the next question
-//Event listener for all the answer buttons -
-//check to see if they are on the last question- if not load the next question
-
-//function next question- load questions
+//function next question- load questions for user to pick
 function loadQuestions() {
   questionPrompt.text(quizQuestions[CurrentQuestion].title);
   var choiceA = quizQuestions[CurrentQuestion].options[0];
@@ -82,7 +79,7 @@ function loadQuestions() {
 function coutdown() {
   interval = setInterval(function () {
     timeLeft--;
-    countdown.textContent = "Time:" + timeLeft;
+    CurrentTime.textContent = "Time:" + timeLeft;
 
     if (timeLeft <= 0) {
       clearInterval(interval);
@@ -92,41 +89,44 @@ function coutdown() {
   }, 1000);
 }
 
-//if statement comparing event.target.value with quizQuestions[currentQuestion].correctAnswer
-//check currentQuestion to see if the quiz is over
-//either show score or run loadQuestions()
+// event on all my buttons to record what the user presses
 $("#buttons").on("click", function (event) {
   var selection = event.target.value;
+  //if statement to check if the answer is correct or not
   if (selection === quizQuestions[CurrentQuestion].answer) {
     correctAnswer++;
     feedback.text("Correct");
+    //if the answer is not correct it should subtact 10 off of the clock
   } else {
     timeLeft = -10;
   }
+  //should add to the score at the end
   CurrentQuestion++;
+  //function makes sure that the game stops when there are not more questions
   if (CurrentQuestion < quizQuestions.length) {
     loadQuestions();
   } else {
     gameOver();
   }
 });
-
+//end of game  the game over should pop up
 function gameOver() {
-  questionContainer.hide();
+  questionContainer.remove();
+  //end game should pop up with a form to enter initails
   endGame.show();
 }
-
+//function for high scores
 function highscores(event) {
   event.preventDefaul();
   if (UserInitials.value === "") {
     alert("Please enter your initails!");
   } else {
-    endGame.hide();
+    endGame.remove();
     scorePG.show();
   }
   return;
 }
-// score with storage.
+// score with local storeage - have to turn into an string
 var savedHighScores = localStorage.getItem("High Scores");
 var ScoresArray;
 
@@ -143,9 +143,24 @@ var userScore = {
 console.log(userScore);
 ScoresArray.push(userScore);
 
-var scoresstring;
-//Event Listeners!
+var scoresString = JSON.stringify(ScoresArray);
+window.localStorage.setItem("high scores", scoresString);
+
+//Show High Scores function to user
+var i = 0;
+function DisplayHighScore() {
+  var savedHighScores = localStorage.getItem("High Scores");
+  console.log(savedHighScores);
+  var storedHighScores = JSON.parse(savedHighScores);
+  for (i < storedHighScores.length; i++; ) {
+    var eachNewHighScore = docukment.createElement("p");
+    eachNewHighScore.innerHTML =
+      storedHighScores[i].UserInitials + "-" + storedHighScores.score;
+    leadrboard.appendChild(eachNewHighScore);
+  }
+}
+
+//Event Listeners!//
+
 //start button
 startButton.on("click", startGame);
-
-//click for multiple choice answers. Event objest, target
