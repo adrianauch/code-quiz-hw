@@ -1,28 +1,28 @@
 var questions = [
   {
     title: "What is the rarest m&m color?",
-    options: ["Red", "Blue", "Brown", "Yellow"],
-    answer: "2",
+    choices: ["Red", "Blue", "Brown", "Yellow"],
+    answer: "Brown",
   },
   {
     title: "What was the first soft drink in space?",
-    options: ["Coca-Cola", "Pepsi", "Dr.Pepper", "Gatorade"],
-    answer: "0",
+    choices: ["Coca-Cola", "Pepsi", "Dr.Pepper", "Gatorade"],
+    answer: "Coca-Cola",
   },
   {
     title: "What is the most consumer manufactured drink in the world?",
-    options: ["Soft Drinks", "Coffee", "Alcohol", "Tea"],
-    answer: "4",
+    choices: ["Soft Drinks", "Coffee", "Alcohol", "Tea"],
+    answer: "Tea",
   },
   {
     title: "Where was Hawaiian pizza invented?",
-    options: ["Italiy", "Canada", "United States", "United Kingdom"],
-    answer: "1",
+    choices: ["Italy", "Canada", "United States", "United Kingdom"],
+    answer: "Italy",
   },
   {
     title: "How long does it take to grow a pineapple?",
-    options: ["3 months", "6 months", "1 year", "3 years"],
-    answer: "4",
+    choices: ["3 months", "6 months", "1 year", "3 years"],
+    answer: "3 years",
   },
 ];
 
@@ -77,7 +77,7 @@ function render(questionIndex) {
   }
   // New for each for question choices
   userChoices.forEach(function (newItem) {
-    var listItem = document.createElement("li");
+    var listItem = document.createElement("button");
     listItem.textContent = newItem;
     questionsDiv.appendChild(ulCreate);
     ulCreate.appendChild(listItem);
