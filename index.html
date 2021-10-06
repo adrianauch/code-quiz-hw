@@ -17,64 +17,27 @@
     />
     <link rel="stylesheet" href="style.css" />
     <title>JavaScript Quiz!</title>
-  </head>
-  <body>
-    <!-- Have a header that has a link to high scores  and timer button-->
-    <header class="header">
-      <div id="highscore"><a href="#"></a> High Scores</div>
-    </header>
-    <!-- !Landing page- this need a title (header) directions and a start btn -->
-    <section id="landing-page" class="landing-page">
-      <h1>Test Your Food Knowledge!</h1>
-      <p id="directions">
-        Try and correctly answer all of the JavaScript questions, within the
-        allotted time. Keep in mind that wrong answers will take 15 seconds off
-        the clock.
-      </p>
-      <button class="startbtn" id="startbtn">Start Quiz</button>
-    </section>
-    <!-- Questions - this page will have a question, timer upper right and display if answer is right or wong -->
-    <!-- big conatiner -->
-    <section class="containerQ hide">
-      <div id="timer"></div>
-      <!-- Need a timer somewhere in here -->
-      <!-- h3 has the question -->
-      <h3 id="questions" class="questions">
-        Please Answer the following Question:
-      </h3>
-      <div id="viewQuestion"></div>
-      <ul class="answers" id="buttons">
-        <!-- These are the options to the question -->
-        <li><button value="A" id="A">A</button></li>
-        <li><button value="B" id="B">B</button></li>
-        <li><button value="c" id="C">C</button></li>
-        <li><button value="D" id="D">D</button></li>
-      </ul>
-      <p id="worng-right"></p>
-    </section>
-    <!-- GAME OVER section- user can enter in intials and see other high scores -->
-    <!-- in example it shows view high score in upper left? anotehr event button and display scores w/ initials?  -->
-    <section id="end-game" class="game-over-screen">
-      <h2 id="game-over">GAME OVER</h2>
-      <div id="Final-Score"></div>
-      <input
-        type="text"
-        placeholder="Please Enter Your Intials Here"
-        name="initails"
-        id="initials"
-      />
-      <button class="submit-btn">Submit Score</button>
-    </section>
-    <!-- High Score Section-->
-    <section id="score-pg" class="score-pg">
-      <h2>Leader Board</h2>
-      <ul id="leaderboard"></ul>
-      <div>
-        <button id="play-again"></button>
-      </div>
-    </section>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <body>
+      <!-- Link to highscores -->
+      <a href="HighScores.html">View Highscores</a>
+      <!-- This is a wrapper -->
+      <div id="wrapper">
+          <!-- Div for timer -->
+          <div id="currentTime"></div>
+          <!-- Div for quiz content -->
+          <div id="questionsDiv">
+              <h1>Test Your Food Knowledge</h1>
+              <p>Try to answer the following food questions within the time limit. Keep in mind that incorrect
+                  answers will penalize your score/time by ten seconds!</p>
+              <ul id="choicesUl"></ul>
+              <!-- Buttons -->
+              <button id="startTime">Start Quiz</button>
+          </div>
+  
+        </div>
+  
+  
+  </body>
     <script src="./script.js"></script>
   </body>
 </html>
